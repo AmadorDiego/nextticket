@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "project": {
+    "name": "nextticket",
+    "root": "."
+  },
+  "lint": {
+    "files": ["**/*.{js,ts,tsx,md}"],
+    "language": "typescript"
+  },
+  "format": {
+    "indentStyle": "space",
+    "indentSize": 2
+  }
+}

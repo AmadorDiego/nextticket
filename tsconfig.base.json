@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@backend/*": ["apps/backend/*"],
+      "@frontend/*": ["apps/frontend/*"],
+      "@mobile/*": ["apps/mobile/*"],
+      "@packages/*": ["packages/*"]
+    }
+  },
+  "include": ["apps/**/*", "packages/**/*", "agents/**/*", "docs/**/*", "scripts/**/*"]
+}
