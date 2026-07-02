@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function IconMenu() {
   return (
@@ -8,7 +11,15 @@ function IconMenu() {
   );
 }
 
+const NAV_LINK_CLASS = {
+  active: "text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md",
+  inactive: "text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md",
+};
+
 export default function Navbar() {
+  const pathname = usePathname();
+  const isMisBoletos = pathname?.startsWith("/mis-boletos");
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-surface dark:bg-surface-container shadow-sm h-16">
       <div className="max-w-container-max mx-auto px-gutter h-full flex justify-between items-center">
@@ -18,13 +29,13 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-lg">
           <Link
             href="/"
-            className="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md"
+            className={isMisBoletos ? NAV_LINK_CLASS.inactive : NAV_LINK_CLASS.active}
           >
             Events
           </Link>
           <Link
-            href="/checkout"
-            className="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md"
+            href="/mis-boletos"
+            className={isMisBoletos ? NAV_LINK_CLASS.active : NAV_LINK_CLASS.inactive}
           >
             My Tickets
           </Link>
