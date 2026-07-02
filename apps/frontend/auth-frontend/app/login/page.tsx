@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -153,10 +154,23 @@ const USER_TYPES: { key: UserType; label: string; icon: React.ReactNode }[] = [
 // ─── Login face ───────────────────────────────────────────────────────────────
 
 function LoginFace({ onFlip }: { onFlip: () => void }) {
+  const router = useRouter();
   const [userType, setUserType]         = useState<UserType>("organizador");
   const [email, setEmail]               = useState("");
   const [password, setPassword]         = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (userType === "organizador") {
+      router.push("/organizer/dashboard");
+      return;
+    }
+
+    // Por ahora los demás roles quedan en la misma pantalla.
+    console.log("Rol seleccionado:", userType);
+  };
 
   return (
     <div className="w-full rounded-2xl p-6" style={cardStyle}>
@@ -188,7 +202,7 @@ function LoginFace({ onFlip }: { onFlip: () => void }) {
 
       <div className="border-t border-white/[0.05] mb-5" />
 
-      <form onSubmit={e => e.preventDefault()} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <InputField id="l-email" label="Correo electrónico" type="email"
           placeholder="nombre@ejemplo.com" value={email} onChange={setEmail} icon={<IconMail />} />
         <InputField id="l-password" label="Contraseña"
