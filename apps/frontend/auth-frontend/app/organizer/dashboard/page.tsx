@@ -28,11 +28,10 @@ const IcoX         = () => <svg className="w-4 h-4" fill="none" stroke="currentC
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const NAV_MAIN = [
-  { label: "Dashboard",        icon: <IcoDash />,        active: true  },
-  { label: "Mis Eventos",      icon: <IcoCalendar />               },
-  { label: "Crear Evento",     icon: <IcoCirclePlus />             },
-  { label: "Ventas",           icon: <IcoPayments />               },
-  { label: "Boletos Vendidos", icon: <IcoTicket />                 },
+  { label: "Dashboard",        icon: <IcoDash />,        active: true,  href: "/organizer/dashboard" },
+  { label: "Mis Eventos",      icon: <IcoCalendar />,    href: "/organizer/myEvents" },
+  { label: "Ventas",           icon: <IcoPayments />,    href: "/organizer/sales" },
+  { label: "Boletos Vendidos", icon: <IcoTicket />,      href: "/organizer/tickets" },
 ];
 
 const CHART = [
@@ -87,10 +86,10 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
 
           {/* Nav */}
           <nav style={{ flex: 1, padding: "0 12px", overflow: "hidden" }}>
-            {NAV_MAIN.map(({ label, icon, active }) => (
+            {NAV_MAIN.map(({ label, icon, active, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href ?? "#"}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -119,12 +118,12 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
           {/* Bottom */}
           <div style={{ padding: "12px 12px 0", borderTop: "1px solid rgba(74,68,85,0.25)" }}>
             {[
-              { label: "Perfil",        icon: <IcoPerson />, danger: false },
-              { label: "Cerrar Sesión", icon: <IcoLogout />, danger: true  },
-            ].map(({ label, icon, danger }) => (
+              { label: "Perfil",        icon: <IcoPerson />, danger: false, href: "#" },
+              { label: "Cerrar Sesión", icon: <IcoLogout />, danger: true,  href: "/" },
+            ].map(({ label, icon, danger, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -517,20 +516,20 @@ export default function OrganizerDashboard() {
               <h2 style={{ fontWeight: 900, fontSize: "1.75rem", letterSpacing: "-0.02em", color: "#e0e3e5", margin: 0 }}>Resumen de Gestión</h2>
               <p style={{ fontSize: 13, color: "rgba(204,195,216,0.55)", marginTop: 4 }}>Monitorea el rendimiento de tus producciones en tiempo real.</p>
             </div>
-            <div style={{ display: "flex", gap: 10 }}>
+            <div style={{ display: "flex", gap: 8 }}>
               <button
-                style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 10, background: "#272a2c", border: "1px solid rgba(74,68,85,0.3)", color: "#e0e3e5", fontSize: 13, fontWeight: 600, cursor: "pointer" }}
+                style={{ display: "flex", alignItems: "center", gap: 5, padding: "6px 12px", borderRadius: 8, background: "#272a2c", border: "1px solid rgba(74,68,85,0.3)", color: "#e0e3e5", fontSize: 12, fontWeight: 600, cursor: "pointer" }}
                 onMouseEnter={e => (e.currentTarget.style.background = "#323537")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#272a2c")}
               >
-                <IcoDownload /> Ver Reporte de Ventas
+                <IcoDownload /> Ver Reporte
               </button>
               <button
-                style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", borderRadius: 10, background: "linear-gradient(135deg,#7c3aed 0%,#0053db 100%)", border: "none", color: "#ede0ff", fontSize: 13, fontWeight: 700, cursor: "pointer", boxShadow: "0 4px 14px rgba(124,58,237,0.3)" }}
+                style={{ display: "flex", alignItems: "center", gap: 5, padding: "6px 14px", borderRadius: 8, background: "linear-gradient(135deg,#7c3aed 0%,#0053db 100%)", border: "none", color: "#ede0ff", fontSize: 12, fontWeight: 700, cursor: "pointer", boxShadow: "0 4px 14px rgba(124,58,237,0.3)" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.filter = "brightness(1.1)"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.filter = ""; }}
               >
-                <IcoPlus /> Crear Nuevo Evento
+                <IcoPlus /> Nuevo Evento
               </button>
             </div>
           </div>
