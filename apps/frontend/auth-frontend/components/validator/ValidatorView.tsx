@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ValidatorSidebar from "./layout/ValidatorSidebar";
 import ValidatorMobileHeader from "./layout/ValidatorMobileHeader";
-import ValidatorFooter from "./layout/ValidatorFooter";
+import Footer from "../Footer"
 import TicketScanner from "./scanner/TicketScanner";
 import ManualFolioForm from "./scanner/ManualFolioForm";
 import ValidationStats from "./stats/ValidationStats";
@@ -59,7 +59,7 @@ export default function ValidatorView() {
           </div>
         </section>
 
-        <ValidatorFooter />
+        <Footer />
       </main>
 
       <ValidationResultModal result={result} onReset={handleReset} />

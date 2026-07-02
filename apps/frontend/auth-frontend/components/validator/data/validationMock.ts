@@ -7,10 +7,6 @@ import type {
 
 export const validatorNavItems: ValidatorNavItem[] = [
   {
-    label: "Dashboard",
-    icon: "dashboard",
-  },
-  {
     label: "Events",
     icon: "event",
   },
@@ -18,10 +14,6 @@ export const validatorNavItems: ValidatorNavItem[] = [
     label: "Validation",
     icon: "qr_code_scanner",
     active: true,
-  },
-  {
-    label: "Users",
-    icon: "group",
   },
 ];
 
