@@ -14,7 +14,7 @@ export default function EventSelectionHeader({
           Selección de Evento
         </h2>
         <p className="mt-1 text-base text-[#ccc3d8]">
-          Seleccione el evento para iniciar el proceso de validación
+          Seleccione el evento para iniciar a validar los tickets. Puede buscar un evento por nombre o filtrar por fecha.
         </p>
       </div>
 
