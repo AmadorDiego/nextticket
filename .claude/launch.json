@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "purchases-frontend",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "purchases-frontend", "dev"],
+      "port": 3000
+    }
+  ]
+}
